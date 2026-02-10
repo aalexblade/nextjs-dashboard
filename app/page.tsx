@@ -1,28 +1,10 @@
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import styles from '@/app/ui/home.module.css';
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
 
-import { neon } from '@neondatabase/serverless';
-
 export default function Page() {
-  // 2.Create a Server Action inside a component
-  async function create(formData: FormData) {
-    'use server';
-    try {
-      const sql = neon(`${process.env.DATABASE_URL}`);
-      const comment = formData.get('comment');
-
-      // Insert into a table you created in Neon
-      await sql`INSERT INTO comments (comment) VALUES (${comment})`;
-      console.log('Comment saved!');
-    } catch (error) {
-      console.error('Error while saving:', error);
-    }
-  }
-
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
@@ -46,44 +28,26 @@ export default function Page() {
           >
             <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
-
-          {/* 3.added form */}
-          <div className="mt-10 border-t pt-10">
-            <h2 className="mb-4 text-lg font-bold">
-              Leave a review (Postgres)
-            </h2>
-            <form action={create} className="flex flex-col gap-3">
-              <input
-                type="text"
-                name="comment"
-                placeholder="Your comment..."
-                className="rounded border border-gray-300 p-2 text-black focus:outline-blue-500"
-                required
-              />
-              <button
-                type="submit"
-                className="rounded bg-green-600 p-2 text-white transition-colors hover:bg-green-700"
-              >
-                Send to database
-              </button>
-            </form>
-          </div>
         </div>
 
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
+          {/* Desktop Image */}
           <Image
             src="/hero-desktop.png"
             width={1000}
             height={760}
             className="hidden md:block"
             alt="Screenshots of the dashboard project showing desktop version"
+            priority
           />
+          {/* Mobile Image */}
           <Image
             src="/hero-mobile.png"
             width={560}
             height={620}
             className="block md:hidden"
             alt="Screenshots of the dashboard project showing mobile version"
+            priority
           />
         </div>
       </div>
