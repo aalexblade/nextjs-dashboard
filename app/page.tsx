@@ -42,15 +42,14 @@ export default function Page() {
 
           <Link
             href="/login"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium
-             text-white transition-colors hover:bg-blue-400 md:text-base"
+            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
             <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
 
           {/* 3.added form */}
           <div className="mt-10 border-t pt-10">
-            <h2 className="text-lg font-bold mb-4">
+            <h2 className="mb-4 text-lg font-bold">
               Leave a review (Postgres)
             </h2>
             <form action={create} className="flex flex-col gap-3">
@@ -58,12 +57,12 @@ export default function Page() {
                 type="text"
                 name="comment"
                 placeholder="Your comment..."
-                className="p-2 border rounded text-black border-gray-300 focus:outline-blue-500"
+                className="rounded border border-gray-300 p-2 text-black focus:outline-blue-500"
                 required
               />
               <button
                 type="submit"
-                className="bg-green-600 text-white p-2 rounded hover:bg-green-700 transition-colors"
+                className="rounded bg-green-600 p-2 text-white transition-colors hover:bg-green-700"
               >
                 Send to database
               </button>
