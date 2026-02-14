@@ -70,26 +70,28 @@ A production-grade, full-stack financial dashboard built with **Next.js 15 (App 
 ### 🚀 Local Development
 
 1. **Clone the repository:**
+   
    ```bash
    git clone https://github.com/aalexblade/nextjs-dashboard.git
    cd nextjs-dashboard
-
-2. Install dependencies:
-       
-    pnpm install
-
-3. Configure Environment Variables:
+   ```
+3. Install dependencies:
    
-    Create a .env file in the root directory:
+    ```  
+    pnpm install
+    ```
+4.  **Environment Setup:** Create a `.env` file in the root directory and add the following:
+    ```
     POSTGRES_URL=your_neon_url_here
     AUTH_SECRET=your_secret_here
     AUTH_URL=http://localhost:3000/api/auth
-
-4. Run the development server:
-
-   pnpm dev
- 
-
+    ```
+5. Run the development server:
+   
+   ```
+   pnpm run dev
+   ```
+   
 ---
 
 ### ✨ 📈 Future Improvements
